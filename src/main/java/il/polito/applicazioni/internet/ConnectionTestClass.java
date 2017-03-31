@@ -35,7 +35,7 @@ public class ConnectionTestClass {
 		try {
 
 			connection = DriverManager.getConnection(
-					"jdbc:postgresql://127.0.0.1:5432/", DB_USERNAME,
+					"jdbc:postgresql://127.0.0.1:5432/"+DB_NAME, DB_USERNAME,
 					DB_PASSWORD);
 
 		} catch (SQLException e) {
