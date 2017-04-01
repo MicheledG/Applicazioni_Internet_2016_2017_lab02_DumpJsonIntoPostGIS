@@ -1,5 +1,6 @@
 package il.polito.applicazioni.internet;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,11 @@ import il.polito.applicazioni.internet.json.model.LineClass;
 import il.polito.applicazioni.internet.json.model.LinesClass;
 import il.polito.applicazioni.internet.json.model.StopClass;
 import il.polito.applicazioni.internet.postgis.model.BusLine;
+import il.polito.applicazioni.internet.postgis.model.BusLineDAO;
 import il.polito.applicazioni.internet.postgis.model.BusLineStop;
+import il.polito.applicazioni.internet.postgis.model.BusLineStopDAO;
 import il.polito.applicazioni.internet.postgis.model.BusStop;
+import il.polito.applicazioni.internet.postgis.model.BusStopDAO;
 
 public class JSON2PostGISTranslator {
 	
@@ -76,6 +80,29 @@ public class JSON2PostGISTranslator {
 		
 		
 		//load post gis model to post gis DB
+		Connection connection = PostGISConnector.getConnection();
+		if(connection == null){
+			System.out.println("Impossible to connect to PostGIS DB");
+			return;
+		}
+		
+		try{
+			
+			for (BusLine busLine : busLineList) {
+				BusLineDAO.createBusLine(connection, busLine);
+			}
+			
+			for (BusStop busStop : busStopList) {
+				BusStopDAO.createBusLineStop(connection, busStop);
+			}
+			
+			for (BusLineStop busLineStop : busLineStopList) {
+				BusLineStopDAO.createBusLineStop(connection, busLineStop);
+			}
+		} finally {
+			
+		}
+		
 	}
 	
 }

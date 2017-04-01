@@ -7,9 +7,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-import il.polito.applicazioni.internet.json.model.LineClass;
 import il.polito.applicazioni.internet.json.model.LinesClass;
-import il.polito.applicazioni.internet.json.model.StopClass;
 
 public class ParseLinesFromJSON {
 
