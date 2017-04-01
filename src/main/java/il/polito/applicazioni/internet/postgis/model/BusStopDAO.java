@@ -11,7 +11,7 @@ public class BusStopDAO {
 		PreparedStatement preparedStatement = null;
 		
 		try{
-			String query = "INSERT INTO BusStop "
+			String query = "INSERT INTO busstop "
 					+ "VALUES( "
 					+ "?, "
 					+ "?, "

@@ -11,7 +11,7 @@ public class BusLineDAO {
 		PreparedStatement preparedStatement = null;
 		
 		try{
-			String query = "INSERT INTO BusLine "
+			String query = "INSERT INTO busline "
 					+ "VALUES( "
 					+ "?, "
 					+ "? "
